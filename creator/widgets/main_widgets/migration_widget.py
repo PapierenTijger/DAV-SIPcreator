@@ -458,6 +458,8 @@ class TabUI(QtWidgets.QMainWindow):
         def _set_combobox_items(combobox: QtWidgets.QComboBox) -> None:
             combobox.clear()
             
+            # Sort series alphabetically on name, for easier usage
+            self.series.sort(key = lambda x:x.name)
             for series in self.series:
                 if series.status != "Published":
                     continue
